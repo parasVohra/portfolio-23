@@ -1,6 +1,8 @@
+import { useTheme } from "next-themes";
 import Head from "next/head";
 
 export default function Home() {
+    const { theme, setTheme } = useTheme();
     return (
         <>
             <Head>
@@ -17,6 +19,13 @@ export default function Home() {
             </Head>
             <main>
                 <h1 className="text-3xl font-bold underline">Hello world</h1>
+                <button
+                    onClick={() =>
+                        setTheme(theme === "dark" ? "light" : "dark")
+                    }
+                >
+                    Toggle
+                </button>
             </main>
         </>
     );
